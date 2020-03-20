@@ -1,19 +1,65 @@
 {
-  "name": "react-native-modal-selector",
-  "version": "2.0.0",
+  "_args": [
+    [
+      "react-native-modal-selector@1.1.2",
+      "C:\\work\\vznaniyaPlanB"
+    ]
+  ],
+  "_from": "react-native-modal-selector@1.1.2",
+  "_id": "react-native-modal-selector@1.1.2",
+  "_inBundle": false,
+  "_integrity": "sha512-LHFvEsoUUSFrpU3vZIYO/0wjizaGC5vSbkypKsf8qmVGoXvOtUVvJrvyf12YFkr0S1FkYYjRFb0t/H1PNdDRRQ==",
+  "_location": "/react-native-modal-selector",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "react-native-modal-selector@1.1.2",
+    "name": "react-native-modal-selector",
+    "escapedName": "react-native-modal-selector",
+    "rawSpec": "1.1.2",
+    "saveSpec": null,
+    "fetchSpec": "1.1.2"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-modal-selector/-/react-native-modal-selector-1.1.2.tgz",
+  "_spec": "1.1.2",
+  "_where": "C:\\work\\vznaniyaPlanB",
+  "author": {
+    "name": "Daniel Korger",
+    "email": "dan@imake.io"
+  },
+  "bugs": {
+    "url": "https://github.com/peacechen/react-native-modal-selector/issues"
+  },
+  "contributors": [
+    {
+      "name": "Alex Spring",
+      "email": "notlose@hotmail.com"
+    },
+    {
+      "name": "Peace Chen",
+      "url": "https://github.com/peacechen"
+    }
+  ],
+  "dependencies": {
+    "prop-types": "^15.5.10"
+  },
   "description": "A cross-platform (iOS / Android), selector/picker component for React Native that is highly customizable and supports sections.",
-  "main": "index.js",
-  "typings": "index.d.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postversion": "git push && git push --tags",
-    "lint": "./node_modules/.bin/eslint ./",
-    "lint-fix": "./node_modules/.bin/eslint --fix ./"
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.4.1",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-react": "^7.2.1",
+    "eslint-plugin-react-native": "^3.0.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/peacechen/react-native-modal-selector.git"
+  "directories": {
+    "doc": "docs"
   },
+  "homepage": "https://github.com/peacechen/react-native-modal-selector",
   "keywords": [
     "react-native",
     "dropdown",
@@ -25,28 +71,19 @@
     "android",
     "react-component"
   ],
-  "dependencies": {
-    "prop-types": "^15.5.10"
-  },
-  "author": "Daniel Korger <dan@imake.io>",
-  "contributors": [
-    "Alex Spring <notlose@hotmail.com>",
-    "Peace Chen (https://github.com/peacechen)"
-  ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/peacechen/react-native-modal-selector/issues"
+  "main": "index.js",
+  "name": "react-native-modal-selector",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peacechen/react-native-modal-selector.git"
   },
-  "homepage": "https://github.com/peacechen/react-native-modal-selector",
-  "directories": {
-    "doc": "docs"
+  "scripts": {
+    "lint": "eslint ./",
+    "lint-fix": "eslint --fix ./",
+    "postversion": "git push && git push --tags",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "eslint": "^4.4.1",
-    "eslint-plugin-babel": "^4.1.2",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-react": "^7.2.1",
-    "eslint-plugin-react-native": "^3.0.1"
-  }
+  "typings": "index.d.ts",
+  "version": "1.1.2"
 }

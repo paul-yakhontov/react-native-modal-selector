@@ -73,8 +73,6 @@ const propTypes = {
     modalOpenerHitSlop:             PropTypes.object,
     customSelector:                 PropTypes.node,
     selectedKey:                    PropTypes.any,
-    enableShortPress:               PropTypes.bool,
-    enableLongPress:                PropTypes.bool,
 };
 
 const defaultProps = {
@@ -123,8 +121,6 @@ const defaultProps = {
     modalOpenerHitSlop:             {top: 0, bottom: 0, left: 0, right: 0},
     customSelector:                 undefined,
     selectedKey:                    '',
-    enableShortPress:               true,
-    enableLongPress:                false,
 };
 
 export default class ModalSelector extends React.Component {
@@ -151,7 +147,7 @@ export default class ModalSelector extends React.Component {
             newState.modalVisible = this.props.visible;
             doUpdate = true;
         }
-        if (prevProps.selectedKey !== this.props.selectedKey || prevProps.data !== this.props.data) {
+        if(prevProps.selectedKey !== this.props.selectedKey){
             let selectedItem = this.validateSelectedKey(this.props.selectedKey);
             newState.selected = selectedItem.label;
             newState.changedItem = selectedItem.key;
@@ -170,10 +166,13 @@ export default class ModalSelector extends React.Component {
     }
 
     onChange = (item) => {
-        this.props.onChange(item);
+        if (Platform.OS === 'android' || (Modal.propTypes !== undefined && !Modal.propTypes.onDismiss)) { // don't know if this will work for previous version, please check!
+            // RN >= 0.50 on iOS comes with the onDismiss prop for Modal which solves RN issue #10471
+            this.props.onChange(item);
+        }
         this.setState({ selected: this.props.labelExtractor(item), changedItem: item }, () => {
           if (this.props.closeOnChange)
-            this.close(item);
+            this.close();
         });
     }
 
@@ -181,21 +180,15 @@ export default class ModalSelector extends React.Component {
       return this.state.changedItem;
     }
 
-    close = (item) => {
-        this.props.onModalClose(item);
+    close = () => {
+        this.props.onModalClose();
         this.setState({
             modalVisible: false,
         });
     }
 
-    open = (params = {}) => {
-        if (!params.longPress && !this.props.enableShortPress) {
-          return;
-        }
-        if (params.longPress && !this.props.enableLongPress) {
-          return;
-        }
-        this.props.onModalOpen(params);
+    open = () => {
+        this.props.onModalOpen();
         this.setState({
             modalVisible: true,
             changedItem:  undefined,
@@ -327,7 +320,6 @@ export default class ModalSelector extends React.Component {
                         activeOpacity={this.props.touchableActiveOpacity}
                         style={this.props.touchableStyle}
                         onPress={this.open}
-                        onLongPress={() => this.open({longPress: true})}
                         disabled={this.props.disabled}
                         accessible={this.props.openButtonContainerAccessible}
                     >
